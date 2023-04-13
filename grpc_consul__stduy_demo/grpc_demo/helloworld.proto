@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package helloworld;
+
+option go_package = "test_grpc/helloworld";
+
+// 定义一个 HelloRequest 消息类型，包含一个字符串类型的 name 字段
+message HelloRequest {
+  string name = 1;
+}
+
+// 定义一个 HelloResponse 消息类型，包含一个字符串类型的 message 字段
+message HelloResponse {
+  string message = 1;
+}
+
+// 定义一个 Greeter 服务，包含一个 SayHello 方法，该方法接收一个 HelloRequest 消息类型的参数，返回一个 HelloReply 消息类型的响应
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
